@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import jammmerLogo from './resources/images/jammmerLogo2.jpg';
+import SearchBar from './components/SearchBar';
+
 
 function App() {
+  const handleSearch = (query) => {
+    console.log("Search term:", query);
+    // Later, Spotify API search function added here
+  };
+  
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={jammmerLogo} className="App-logo" alt="logo" />
+        <SearchBar onSearch={handleSearch} />
       </header>
     </div>
   );
