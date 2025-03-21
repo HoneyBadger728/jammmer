@@ -64,3 +64,47 @@ body {
   border: 2px solid var(--color-secondary);
   color: var(--color-secondary);
 }
+
+.Results-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: calc(100vh - 135px);
+  width: 50%;
+}
+
+.SearchResults {
+  background-color: var(--color-primary);
+  padding: 20px;
+  color: var(--color-secondary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 16px;
+  margin: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.Track {
+  padding: 12px;
+  border-bottom: 1px solid #444;
+}
+
+.Track:last-child {
+  border-bottom: none;
+}
+
+.Track-info h3 {
+  color: orange;
+  margin: 0;
+}
+
+.Track-info p {
+  color: #ccc;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.no-results {
+  color: #888;
+  font-style: italic;
+}
