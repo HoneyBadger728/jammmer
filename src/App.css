@@ -65,6 +65,12 @@ body {
   color: var(--color-secondary);
 }
 
+.Body-container {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
 .Results-container {
   display: flex;
   flex-direction: column;
@@ -107,4 +113,62 @@ body {
 .no-results {
   color: #888;
   font-style: italic;
+}
+
+.Playlist-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: calc(100vh - 135px);
+  width: 50%;
+}
+
+.playlist {
+  background-color: var(--color-primary);
+  padding: 20px;
+  color: var(--color-secondary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 16px;
+  margin: 10px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.New-playlist {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  align-items: center;
+  
+}
+
+.playlist input {
+  padding: 0.5rem 1rem;
+  margin-left: 15px;
+  border: 2px solid var(--color-secondary);
+  outline: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--color-tertiary);
+  font-size: 1rem;
+}
+
+.playlist button {
+  padding: 0.5rem 1rem;
+  margin-left: 5px;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.playlist button:hover {
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-secondary);
 }
