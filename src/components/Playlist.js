@@ -26,7 +26,7 @@ const Playlist = ({ playlistTracks, onRemove, onSave }) => {
         {playlistTracks.map((track) => (
           <div key={track.id} className="track">
             <p>{track.name} - {track.artist}</p>
-            <button onClick={() => onRemove(track)}>Remove</button>
+            <button onClick={() => onRemove(track)}>x</button>
           </div>
         ))}
         </div>

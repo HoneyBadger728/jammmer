@@ -13,21 +13,83 @@ function App() {
 
   useEffect(() => {
     const token = getAccessToken();
+    const storedToken = localStorage.getItem("spotify_access_token");
+  
     if (token) {
+      localStorage.setItem("spotify_access_token", token);
       setAccessToken(token);
-      localStorage.setItem("spotify_access_token", token); // Store token for persistence
-      console.log("Spotify Access Token:", token);
+      console.log("Spotify Access Token Set:", token);
+    } else if (storedToken) {
+      // Validate stored token before using it
+      fetch("https://api.spotify.com/v1/me", {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+        .then((response) => {
+          if (response.ok) {
+            setAccessToken(storedToken);
+            console.log("Using stored token:", storedToken);
+          } else {
+            console.warn("Stored token expired, logging in again...");
+            localStorage.removeItem("spotify_access_token");
+            setAccessToken(null);
+          }
+        })
+        .catch((error) => console.error("Error validating token:", error));
     }
   }, []);
+
+  useEffect(() => {
+    if (accessToken) {
+      setTimeout(() => {
+        console.log("Spotify token expired. Logging in again...");
+        localStorage.removeItem("spotify_access_token");
+        setAccessToken(null);
+        window.location.href = getSpotifyAuthUrl(); // Redirect for re-login
+      }, 3600 * 1000); // 1 hour
+    }
+  }, [accessToken]);
+  
 
   const handleLogin = () => {
     window.location.href = getSpotifyAuthUrl();
   };
 
-  const handleSearch = (query) => {
-    console.log("Search term:", query);
-    // Later, Spotify API search function added here
+  const handleSearch = async (query) => {
+    if (!accessToken) {
+      console.error("No access token available");
+      return;
+    }
+  
+    try {
+      const response = await fetch(
+        `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track`,
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error(`Spotify API error: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log("Search Results:", data);
+  
+      // Extract track data from API response
+      const tracks = data.tracks.items.map((track) => ({
+        id: track.id,
+        name: track.name,
+        artist: track.artists[0]?.name,
+        album: track.album.name,
+        uri: track.uri,
+      }));
+  
+      setSearchResults(tracks);
+    } catch (error) {
+      console.error("Error fetching Spotify search results:", error);
+    }
   };
+  
 
   const addTrack = (track) => {
     if (!playlistTracks.some((t) => t.id === track.id)) {

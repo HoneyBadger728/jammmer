@@ -90,6 +90,15 @@ body {
   overflow-y: auto;
 }
 
+.Track-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 90%;
+}
+
 .Track {
   padding: 12px;
   border-bottom: 1px solid #444;
@@ -113,6 +122,21 @@ body {
 .no-results {
   color: #888;
   font-style: italic;
+}
+
+.add-button {
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  transition: background-color 0.4s ease;
+}
+
+.add-button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .Playlist-container {
