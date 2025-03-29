@@ -1,5 +1,5 @@
 const clientId = "5ddac938cd6a41e28ee31fe9be4b32aa";
-const redirectUri = "http://localhost:3001";
+const redirectUri = "https://github.com/HoneyBadger728/jammmer";
 const scopes = [
   "playlist-modify-public",
   "playlist-modify-private",
