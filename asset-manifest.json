@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/jammmer/static/css/main.a3785b22.css",
-    "main.js": "/jammmer/static/js/main.108a594c.js",
+    "main.css": "/jammmer/static/css/main.4c835eda.css",
+    "main.js": "/jammmer/static/js/main.ecdc2c03.js",
     "static/js/453.e610fa19.chunk.js": "/jammmer/static/js/453.e610fa19.chunk.js",
     "static/media/jammmerLogo2.jpg": "/jammmer/static/media/jammmerLogo2.7f748be2893fa36a881a.jpg",
     "index.html": "/jammmer/index.html",
-    "main.a3785b22.css.map": "/jammmer/static/css/main.a3785b22.css.map",
-    "main.108a594c.js.map": "/jammmer/static/js/main.108a594c.js.map",
+    "main.4c835eda.css.map": "/jammmer/static/css/main.4c835eda.css.map",
+    "main.ecdc2c03.js.map": "/jammmer/static/js/main.ecdc2c03.js.map",
     "453.e610fa19.chunk.js.map": "/jammmer/static/js/453.e610fa19.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3785b22.css",
-    "static/js/main.108a594c.js"
+    "static/css/main.4c835eda.css",
+    "static/js/main.ecdc2c03.js"
   ]
 }
