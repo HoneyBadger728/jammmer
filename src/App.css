@@ -166,6 +166,10 @@ body {
   border-bottom: 1px solid #444;
 }
 
+.Track-info {
+  max-width: 45%;
+}
+
 .Track:last-child {
   border-bottom: none;
 }
@@ -185,6 +189,32 @@ body {
 .no-results {
   color: #888;
   font-style: italic;
+}
+
+.Track-buttons {
+  display: flex;
+  gap: 15px; /* Add some space between the buttons */
+  justify-content: flex-start; /* Align to the left */
+  align-items: center;
+}
+
+.spotify-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.4s ease;
+}
+
+.spotify-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .add-button {

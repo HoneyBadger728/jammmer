@@ -12,7 +12,17 @@ const SearchResults = ({ results, onAdd }) => {
                     <h3>{track.name}</h3>
                     <p>{track.artist} | {track.album}</p>
                 </div>
-                <button className="add-button" onClick={() => onAdd(track)}>+</button>
+                <div className='Track-buttons'>
+                  <a 
+                    href={`https://open.spotify.com/track/${track.id}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="spotify-button"
+                  >
+                    Play on Spotify
+                  </a>
+                  <button className="add-button" onClick={() => onAdd(track)}>+</button>
+                </div>
             </div>
           </div>
         ))
